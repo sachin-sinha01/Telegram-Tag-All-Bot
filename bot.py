@@ -121,7 +121,7 @@ async def mentionall(event):
 
 # Cancle 
 
-@HwBot.on(events.NewMessage(pattern="^/cancel$"))
+@tag_all_tobot.on(events.NewMessage(pattern="^/cancel$"))
 async def cancel_spam(event):
   if not event.chat_id in spam_chats:
     return await event.respond('__There is no proccess on going...__')
