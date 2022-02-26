@@ -66,7 +66,7 @@ async def mentionall(event):
     return await event.respond("Use This In Channel or Group!")
   
   admins = []
-  async for admin in HwBot.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
+  async for admin in tag_all_tobot.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
     return await event.respond("Only Admin can use it.")
@@ -88,14 +88,14 @@ async def mentionall(event):
     moment_worker.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
-    async for usr in HwBot.iter_participants(event.chat_id):
+    async for usr in tag_all_tobot.iter_participants(event.chat_id):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in moment_worker:
         await event.respond("Stopped!")
         return
       if usrnum == 5:
-        await HwBot.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
+        await tag_all_tobot.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
@@ -106,14 +106,14 @@ async def mentionall(event):
  
     usrnum = 0
     usrtxt = ""
-    async for usr in HwBot.iter_participants(event.chat_id):
+    async for usr in tag_all_tobot.iter_participants(event.chat_id):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in moment_worker:
         await event.respond("Stopped")
         return
       if usrnum == 5:
-        await HwBot.send_message(event.chat_id, usrtxt, reply_to=msg)
+        await tag_all_tobot.send_message(event.chat_id, usrtxt, reply_to=msg)
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
@@ -137,4 +137,4 @@ async def cancel_spam(event):
 
 print("Started Successfully Join Support")
 print("¯\_(ツ)_/¯ Need Help Join @abouut_me")
-HwBot.run_until_disconnected()
+tag_all_tobot.run_until_disconnected()
