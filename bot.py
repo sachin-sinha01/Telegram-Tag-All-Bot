@@ -22,33 +22,33 @@ moment_worker = []
 
 
 #start
-@HwBot.on(events.NewMessage(pattern="^/start$"))
+@tag_all_tobot.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
   await event.reply("^_^ Hey, Welcome To TAG Help Bot's Menu\nI can tag 15,000 Members in Group and 300 Members In Channel.\nNeed Help /help ",
                     buttons=(
                       [
-                         Button.url('📣 UPDATES', 'https://t.me/HwMusicUpdates'), 
-                         Button.url('⭐SUPPORT', 'https://t.me/CFC_BOT_SUPPORT'), 
+                         Button.url('📣 UPDATES', 'https://t.me/abouut_me'), 
+                         Button.url('⭐SUPPORT', 'https://t.me/friend_Warriors'), 
                       ], 
                       [
-                        Button.url('➕ ADD ME TO YOUR GROUP', 'https://t.me/HwMusicBot?startgroup=true'),   
+                        Button.url('➕ ADD ME TO YOUR GROUP', 'https://t.me/tag_all_tobot?startgroup=true'),   
                       ]
                    ), 
                     link_preview=False
                    )
 
 #help
-@HwBot.on(events.NewMessage(pattern="^/help$"))
+@tag_all_tobot.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
   helptext = "**Tag Help Bot's Help Menu**\n\nCommand: /all \n You can use this command with text you want to tell others. \n`Example: /all Good morning!` \nYou can use this command as an answer. any message Bot will tag users to replied message"
   await event.reply(helptext,
                     buttons=(
                       [
-                         Button.url('📣 UPDATES', 'https://t.me/HwMusicUpdates'), 
-                         Button.url('⭐SUPPORT', 'https://t.me/CFC_BOT_SUPPORT'), 
+                         Button.url('📣 UPDATES', 'https://t.me/abouut_me'), 
+                         Button.url('⭐SUPPORT', 'https://t.me/friend_Warriors'), 
                       ], 
                       [
-                        Button.url('➕ ADD ME TO YOUR GROUP', 'https://t.me/HwMusicBot?startgroup=true'),   
+                        Button.url('➕ ADD ME TO YOUR GROUP', 'https://t.me/tag_all_tobot?startgroup=true'),   
                       ]
                    ), 
                     link_preview=False
@@ -59,7 +59,7 @@ async def help(event):
 #bsdk credit de dena verna maa chod dege
 
 #tag
-@HwBot.on(events.NewMessage(pattern="^/tagall|/call|/tall|/all|#all|@all?(.*)"))
+@tag_all_tobot.on(events.NewMessage(pattern="^/tagall|/call|/tall|/all|#all|@all?(.*)"))
 async def mentionall(event):
   global moment_worker
   if event.is_private:
@@ -130,11 +130,11 @@ async def cancel_spam(event):
       spam_chats.remove(event.chat_id)
     except:
       pass
-    return await event.respond('**__Stopped__**\n\n**__Powered By:__ @HwMusicUpdates**')
+    return await event.respond('**__Stopped__**\n\n**__Powered By:__ @abouut_me**')
 
 
 
 
 print("Started Successfully Join Support")
-print("¯\_(ツ)_/¯ Need Help Join @CFC_BOT_SUPPORT")
+print("¯\_(ツ)_/¯ Need Help Join @abouut_me")
 HwBot.run_until_disconnected()
